@@ -1,0 +1,99 @@
+<html lang="id" manifest="900.manifest">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7.00 - 14.02 Webkit by MGstore</title>
+<link rel="stylesheet" href="apache.css">
+</head>
+<body>
+
+<script>
+history.replaceState(null,null,'index.html');
+var histlength=history.length;
+history.go(-histlength);
+
+function setMsg(htmlContent, type) {
+    var msgsElem = document.getElementById("msgs");
+    if(!msgsElem) return;
+    
+    msgsElem.className = ""; 
+    if (type === "success") {
+        msgsElem.classList.add("success");
+    } else if (type === "error") {
+        msgsElem.classList.add("error");
+    }
+    msgsElem.innerHTML = htmlContent;
+}
+
+function DLProgress(e){
+    Percent = Math.round(e.loaded / e.total * 100);
+    setMsg("Menginstal Cache Offline: " + Percent + "%", "running");
+    
+    var bar = document.getElementById("pbar");
+    if (bar) {
+        bar.style.width = Percent + "%";
+    }
+}
+
+function DisplayCacheProgress(){
+    setMsg("Cache Berhasil Diinstal", "success");
+    var bar = document.getElementById("pbar");
+    if (bar) {
+        bar.style.width = "100%";
+    }
+    setTimeout(function(){
+        window.location.href = "index.html";
+    }, 1500);
+}
+
+if (window.applicationCache) {
+    window.applicationCache.addEventListener("progress", DLProgress, false);
+    window.applicationCache.oncached = function(e){ DisplayCacheProgress(); };
+    window.applicationCache.onupdateready = function(e){ DisplayCacheProgress(); };
+    window.applicationCache.onerror = function(e){
+        setMsg("Kesalahan Saat Menginstal Cache! - Bersihkan dan Buka Kembali Browser Anda ...", "error");
+    };
+}
+</script>
+
+<div class="container">
+    <div class="logo-container">
+        <img src="logo.png" alt="Logo MGstore" class="logo">
+    </div>
+
+    <div class="header-title">Webkit By MG Store</div>
+    
+    <div class="status-card">
+        <div id="msgs">Memulai Instalasi Cache...</div>
+        <div class="progress-container">
+            <div id="pbar" class="progress-bar"></div>
+        </div>
+    </div>
+
+    <div class="thanks-section">
+        <h3>TERIMA KASIH KEPADA:</h3>
+        <div class="credits-list">
+            <span class="credit-item">GamerHack93</span>
+            <span class="credit-item">sleirsgoevy</span>
+            <span class="credit-item">TheFlow</span>
+            <span class="credit-item">Flatz</span>
+            <span class="credit-item">Egycnq</span>
+            <span class="credit-item">Jordy</span>
+            <span class="credit-item">Sonic-Iso</span>
+            <span class="credit-item">Abc</span>
+            <span class="credit-item">Prb29327239</span>
+            <span class="credit-item">Feyzee61</span>
+            <span class="credit-item">AlAzif</span>
+            <span class="credit-item">ChendoChap</span>
+            <span class="credit-item">Kameleonre_</span>
+            <span class="credit-item">SiSTR0</span>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; MGstore Webkit Host</p>
+</footer>
+
+</body>
+</html>
