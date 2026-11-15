@@ -32,18 +32,18 @@ const params = new URLSearchParams(location.search);
 
 function hostOk() {
   var m = document.getElementById("msgs") || document.getElementById("msg");
-  if (m) m.innerHTML ='<span style="color: #10e610;">GoldHEN Berhasil Dimuat ...</span>';
+  if (m) m.innerHTML ='<span style="color: #10e610;">ENG / MOHAB ESAM ...</span>';
 }
 function hostFail() {
   var m = document.getElementById("msgs") || document.getElementById("msg");
   if (m) {
-    m.innerHTML = "Gagal Memuat! Mulai Ulang Konsol Anda ...";
+    m.innerHTML = "REBOT ...";
     m.style.color = "#ff0000";
   }
 }
 function hostAlready() {
   var m = document.getElementById("msgs") || document.getElementById("msg");
-  if (m) m.innerHTML ='<span style="color: #10e610;">GoldHEN Sudah Dimuat ...</span>';
+  if (m) m.innerHTML ='<span style="color: #10e610;">GoldHEN LODED ...</span>';
 }
 function hostRetry() {
   var m = document.getElementById("msgs") || document.getElementById("msg");
